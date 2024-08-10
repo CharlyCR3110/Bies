@@ -49,6 +49,7 @@ public class Mariposa extends InsectoAbstracto {
     public void perderAla() {
         this.nAlas--;
         System.out.println(this.getNombre() + " ha perdido un ala, ahora tiene: " + nAlas);
+        this.verificarEstado();
     }
 
     public int getnAlas() {
