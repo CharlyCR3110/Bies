@@ -23,6 +23,14 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/usuario/Bies</url>
+        </repository>
+    </distributionManagement>
+    
+
     <build>
         <plugins>
             <!-- Plugin para compilar el código -->
@@ -86,7 +94,7 @@
                 <version>1.11.2</version>
                 <configuration>
                     <connectionType>developerConnection</connectionType>
-                    <developerConnectionUrl>scm:git:https://github.com/Usuario/Bies.git</developerConnectionUrl>
+                    <developerConnectionUrl>scm:git:https://github.com/usuario/Bies.git</developerConnectionUrl>
                     <username>${github.username}</username>
                     <password>${github.token}</password>
                 </configuration>
