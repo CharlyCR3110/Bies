@@ -75,7 +75,7 @@
                 <version>1.11.2</version>
                 <configuration>
                     <connectionType>developerConnection</connectionType>
-                    <developerConnectionUrl>scm:git:https://github.com/CharlyCR3110/Bies.git</developerConnectionUrl>
+                    <developerConnectionUrl>scm:git:https://github.com/Usuario/Bies.git</developerConnectionUrl>
                     <username>${github.username}</username>
                     <password>${github.token}</password>
                 </configuration>
