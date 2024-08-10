@@ -7,24 +7,24 @@ import org.junit.jupiter.api.Test;
 
 
 public class AranaTest {
-  // si no es una carroña, entonces puede caminar
-  @Test
-  public void testAranaPuedeCaminar() {
-    Arana arana = new Arana("Viuda Negra");
-    assertTrue(!arana.esCarronia());
-  }
+    // si no es una carroña, entonces puede caminar
+    @Test
+    public void testAranaPuedeCaminar() {
+        Arana arana = new Arana("Viuda Negra");
+        assertTrue(!arana.esCarronia());
+    }
 
-  @Test
-  public void testAranaNoPuedeComerMiel() {
-    Arana arana = new Arana("Viuda Negra");
-    Miel miel = new Miel();
-    assertFalse(arana.puedeComer(miel));
-  }
+    @Test
+    public void testAranaNoPuedeComerMiel() {
+        Arana arana = new Arana("Viuda Negra");
+        Miel miel = new Miel();
+        assertFalse(arana.puedeComer(miel));
+    }
 
-  @Test
-  public void testAranaPuedeComerCarronia() {
-    Arana arana = new Arana("Viuda Negra");
-    Carronia carronia = new Carronia(arana);
-    assertFalse(arana.puedeComer(carronia));
-  }
+    @Test
+    public void testAranaPuedeComerCarronia() {
+        Arana arana = new Arana("Viuda Negra");
+        Carronia carronia = new Carronia(arana);
+        assertFalse(arana.puedeComer(carronia));
+    }
 }
