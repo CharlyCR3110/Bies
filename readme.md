@@ -119,3 +119,16 @@ El archivo `settings.xml` debe tener la siguiente estructura:
     </activeProfiles>
 </settings>
 ```
+
+Para realizar un deploy en GitHub, ejecutar el siguiente comando en la raíz del proyecto:
+
+```bash
+mvn deploy
+```
+
+Para realizar un checkin en el repositorio de código fuente, ejecutar el siguiente comando en la raíz del proyecto:
+
+```bash
+mvn scm:checkin -Dmessage="Despliegue automático con Maven"
+```
+
