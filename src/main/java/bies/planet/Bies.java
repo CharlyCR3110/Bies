@@ -41,6 +41,14 @@ public class Bies {
         }
     }
 
+    public String getNombreSeres() {
+        StringBuilder sb = new StringBuilder();
+        for (SerVivoAbstracto ser : seresVivos) {
+            sb.append(ser.getNombre()).append("\n");
+        }
+        return sb.toString();
+    }
+
     public void aplicarDegradacion() {
         for (SerVivoAbstracto ser : seresVivos) {
             this.formateadorDeTitulo(ser.getNombre());
