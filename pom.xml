@@ -53,6 +53,20 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+
+            <!-- Plugin para empacar el proyecto -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.example.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
