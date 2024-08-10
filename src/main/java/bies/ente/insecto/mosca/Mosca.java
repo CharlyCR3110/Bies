@@ -16,7 +16,7 @@ import bies.ente.insecto.estado.carronia.EstadoCarronia;
  * @author Isaac F. B. C.
  * @author Raquel A. B.
  * @author Samuel A. R.
- * @version 1.0 
+ * @version 1.0
  * @since 8/7/2024 - 11:25 AM
  */
 public class Mosca extends InsectoAbstracto {
@@ -65,11 +65,13 @@ public class Mosca extends InsectoAbstracto {
     public void perderPata() {
         this.nPatas--;
         System.out.println(this.getNombre() + " ha perdido una pata, ahora tiene: " + nPatas);
+        this.verificarEstado();
     }
 
     public void perderAla() {
         this.nAlas--;
         System.out.println(this.getNombre() + " ha perdido un ala, ahora tiene: " + nAlas);
+        this.verificarEstado();
     }
 
     public int getnPatas() {
