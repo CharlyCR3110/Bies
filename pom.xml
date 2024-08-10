@@ -67,6 +67,19 @@
                     </archive>
                 </configuration>
             </plugin>
+
+            <!-- Plugin para hacer deploy a GitHub -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.11.2</version>
+                <configuration>
+                    <connectionType>developerConnection</connectionType>
+                    <developerConnectionUrl>scm:git:https://github.com/CharlyCR3110/Bies.git</developerConnectionUrl>
+                    <username>${github.username}</username>
+                    <password>${github.token}</password>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
