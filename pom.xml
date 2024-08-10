@@ -36,6 +36,17 @@
                 </configuration>
             </plugin>
 
+            <!-- Para ejecutar el proyecto -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>bies.Main</mainClass>
+                </configuration>
+            </plugin>
+            
+
             <!-- Plugin para ejecutar pruebas -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
