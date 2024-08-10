@@ -29,6 +29,10 @@ public class Bies {
         return this;
     }
 
+    public List<SerVivoAbstracto> getSeresVivos() {
+        return seresVivos;
+    }
+
     public void mostrarSeres() {
         System.out.println("Mostrando los " + this.seresVivos.size()
                 + " seres vivientes en el planeta Bies..");
