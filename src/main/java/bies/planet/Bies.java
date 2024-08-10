@@ -83,7 +83,6 @@ public class Bies {
         mariposa.volar();
         if (sePierdeParte(mariposa.getnAlas())) {
             mariposa.perderAla();
-            mariposa.verificarEstado();
         }
     }
 
@@ -91,7 +90,6 @@ public class Bies {
         arana.caminar();
         if (sePierdeParte(arana.getnPatas())) {
             arana.perderPata();
-            arana.verificarEstado();
         }
     }
 
@@ -104,7 +102,6 @@ public class Bies {
         if (sePierdeParte(mosca.getnPatas())) {
             mosca.perderPata();
         }
-        mosca.verificarEstado();
     }
 
     private void formateadorDeTitulo(String nombre) {
