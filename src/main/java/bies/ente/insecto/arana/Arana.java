@@ -50,6 +50,7 @@ public class Arana extends InsectoAbstracto {
     public void perderPata() {
         this.nPatas--;
         System.out.println(this.getNombre() + " ha perdido una pata, ahora tiene: " + nPatas);
+        this.verificarEstado();
     }
 
     public int getnPatas() {
