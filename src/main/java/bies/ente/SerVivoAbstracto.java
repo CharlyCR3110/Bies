@@ -1,7 +1,6 @@
 package bies.ente;
 
 import bies.alimentacion.Alimento;
-import bies.comportamiento.comer.IComportamientoComer;
 import bies.comportamiento.comer.PosibleComer;
 
 /**
@@ -14,7 +13,7 @@ import bies.comportamiento.comer.PosibleComer;
  */
 public abstract class SerVivoAbstracto {
     private String nombre;
-    private IComportamientoComer cComer;
+    private PosibleComer cComer;
 
     public SerVivoAbstracto(String nombre) {
         this.nombre = nombre;

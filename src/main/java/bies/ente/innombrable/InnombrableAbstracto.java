@@ -2,8 +2,6 @@ package bies.ente.innombrable;
 
 import bies.alimentacion.Alimento;
 import bies.comportamiento.IComportamiento;
-import bies.comportamiento.caminar.PosibleCaminar;
-import bies.comportamiento.volar.PosibleVolar;
 import bies.ente.SerVivoAbstracto;
 
 /**
@@ -14,8 +12,8 @@ import bies.ente.SerVivoAbstracto;
  * @version 1.0
  * @since 8/7/2024 - 11:25 AM
  */
-public class InnombrableAbstracto extends SerVivoAbstracto {
-    private IComportamiento cCualquiera;
+public abstract class InnombrableAbstracto extends SerVivoAbstracto {
+    protected IComportamiento cCualquiera;
 
     public InnombrableAbstracto(String nombre) {
         super(nombre);
@@ -25,14 +23,8 @@ public class InnombrableAbstracto extends SerVivoAbstracto {
     public boolean puedeComer(Alimento alimento) {
         return true;
     }
+    public abstract void volar();
+    public abstract void caminar();
 
-    public void volar() {
-        this.cCualquiera = new PosibleVolar();
-        this.cCualquiera.ejecutar();
-    }
-
-    public void caminar() {
-        this.cCualquiera = new PosibleCaminar();
-        this.cCualquiera.ejecutar();
-    }
+    
 }
