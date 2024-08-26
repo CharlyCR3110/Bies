@@ -1,6 +1,8 @@
 package bies.ente.innombrable.cero;
 
 import bies.ente.innombrable.InnombrableAbstracto;
+import bies.comportamiento.caminar.PosibleCaminar;
+import bies.comportamiento.volar.PosibleVolar;
 
 /**
  * @author Carlos G. G.
@@ -13,5 +15,14 @@ import bies.ente.innombrable.InnombrableAbstracto;
 public class InnombrableCero extends InnombrableAbstracto {
     public InnombrableCero(String nombre) {
         super(nombre);
+    }
+    public void volar() {
+        this.cCualquiera = new PosibleVolar();
+        this.cCualquiera.ejecutar();
+    }
+
+    public void caminar() {
+        this.cCualquiera = new PosibleCaminar();
+        this.cCualquiera.ejecutar();
     }
 }
