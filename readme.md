@@ -89,6 +89,12 @@ Para empaquetar el proyecto, ejecutar el siguiente comando en la raíz del proye
 mvn package
 ```
 
+Para generar la documentación de java **JavaDoc** se utiliza el siguiente comando:
+
+```bash
+mvn javadoc:javadoc
+```
+
 Ademas de todo esto el proyecto esta configurado para realizar un deploy en GitHub, para esto es necesario tener un token de acceso a GitHub y configurarlo en el archivo `settings.xml` que se encuentra en la carpeta `.m2` de su usuario. El token debe tener permisos para realizar un deploy en GitHub.
 
 Más información sobre cómo generar un token de acceso a GitHub en el siguiente enlace: 
