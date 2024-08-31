@@ -1,6 +1,6 @@
 package bies.alimentacion.hongo;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 
 /**
  * @author Carlos G. G.
@@ -11,9 +11,9 @@ import bies.alimentacion.Alimento;
  * @since 8/7/2024 - 3:08 PM
  */
 
-public record Hongo() implements Alimento {
+public record Hongo() implements IAlimento {
     @Override
-    public String getTipo() {
-        return "Hongos";
+    public String toString() {
+        return "Hongo";
     }
 }

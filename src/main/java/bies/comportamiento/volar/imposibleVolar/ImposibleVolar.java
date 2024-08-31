@@ -1,4 +1,6 @@
-package bies.comportamiento.volar;
+package bies.comportamiento.volar.imposibleVolar;
+
+import bies.comportamiento.volar.IComportamientoVolar;
 
 /**
  * @author Carlos G. G.

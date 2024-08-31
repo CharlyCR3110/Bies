@@ -1,13 +1,13 @@
 package bies.ente.insecto.mosca;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.alimentacion.carronia.Carronia;
 import bies.comportamiento.caminar.IComportamientoCaminar;
-import bies.comportamiento.caminar.ImposibleCaminar;
-import bies.comportamiento.caminar.PosibleCaminar;
+import bies.comportamiento.caminar.imposibleCaminar.ImposibleCaminar;
+import bies.comportamiento.caminar.posibleCaminar.PosibleCaminar;
 import bies.comportamiento.volar.IComportamientoVolar;
-import bies.comportamiento.volar.ImposibleVolar;
-import bies.comportamiento.volar.PosibleVolar;
+import bies.comportamiento.volar.imposibleVolar.ImposibleVolar;
+import bies.comportamiento.volar.posibleVolar.PosibleVolar;
 import bies.ente.insecto.InsectoAbstracto;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
 
@@ -58,7 +58,7 @@ public class Mosca extends InsectoAbstracto {
     }
 
     @Override
-    public boolean puedeComer(Alimento alimento) {
+    public boolean puedeComer(IAlimento alimento) {
         return (alimento instanceof Carronia);
     }
 

@@ -4,6 +4,8 @@ import bies.alimentacion.carronia.Carronia;
 import bies.ente.SerVivoAbstracto;
 import bies.ente.insecto.estado.IEstadoInsecto;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
+import bies.ente.insecto.estado.noCarronia.EstadoNoCarronia;
+
 
 /**
  * @author Carlos G. G.
@@ -18,12 +20,13 @@ public abstract class InsectoAbstracto extends SerVivoAbstracto {
 
     public InsectoAbstracto(String nombre) {
         super(nombre);
+        estadoInsecto = new EstadoNoCarronia();
     }
 
     public abstract void verificarEstado();
 
     public boolean esCarronia() {
-        return estadoInsecto instanceof EstadoCarronia;
+        return estadoInsecto.esCarronia();
     }
 
     public void cambiarEstado(IEstadoInsecto estado) {
@@ -31,9 +34,9 @@ public abstract class InsectoAbstracto extends SerVivoAbstracto {
     }
 
     public Carronia obtenerCarronia() {
-        if (esCarronia()) {
+        if(esCarronia()) {
             return ((EstadoCarronia) estadoInsecto).getCarronia();
         }
         return null;
-    }
+    }   
 }

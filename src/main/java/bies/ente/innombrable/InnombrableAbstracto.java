@@ -1,6 +1,6 @@
 package bies.ente.innombrable;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.comportamiento.IComportamiento;
 import bies.ente.SerVivoAbstracto;
 
@@ -20,9 +20,10 @@ public abstract class InnombrableAbstracto extends SerVivoAbstracto {
     }
 
     @Override
-    public boolean puedeComer(Alimento alimento) {
+    public boolean puedeComer(IAlimento alimento) {
         return true;
     }
+    
     public abstract void volar();
     public abstract void caminar();
 

@@ -1,8 +1,8 @@
 package bies.ente.innombrable.cero;
 
 import bies.ente.innombrable.InnombrableAbstracto;
-import bies.comportamiento.caminar.PosibleCaminar;
-import bies.comportamiento.volar.PosibleVolar;
+import bies.comportamiento.caminar.posibleCaminar.PosibleCaminar;
+import bies.comportamiento.volar.posibleVolar.PosibleVolar;
 
 /**
  * @author Carlos G. G.
@@ -12,17 +12,20 @@ import bies.comportamiento.volar.PosibleVolar;
  * @version 1.0
  * @since 8/7/2024 - 12:02 PM
  */
-public class InnombrableCero extends InnombrableAbstracto {
-    public InnombrableCero(String nombre) {
+public class Innombrable extends InnombrableAbstracto {
+    public Innombrable(String nombre) {
         super(nombre);
-    }
-    public void volar() {
         this.cCualquiera = new PosibleVolar();
+        this.cCualquiera = new PosibleCaminar();
+    }
+    
+    @Override
+    public void volar() {
         this.cCualquiera.ejecutar();
     }
 
+    @Override
     public void caminar() {
-        this.cCualquiera = new PosibleCaminar();
         this.cCualquiera.ejecutar();
     }
 }

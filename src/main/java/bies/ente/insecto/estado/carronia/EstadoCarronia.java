@@ -21,4 +21,9 @@ public class EstadoCarronia implements IEstadoInsecto {
     public Carronia getCarronia() {
         return carronia;
     }
+
+    @Override
+    public boolean esCarronia() {
+        return true;
+    }
 }

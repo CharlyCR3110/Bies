@@ -1,4 +1,6 @@
-package bies.comportamiento.caminar;
+package bies.comportamiento.caminar.imposibleCaminar;
+
+import bies.comportamiento.caminar.IComportamientoCaminar;
 
 /**
  * @author Carlos G. G.

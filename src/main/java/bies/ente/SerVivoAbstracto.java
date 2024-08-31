@@ -1,6 +1,6 @@
 package bies.ente;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.comportamiento.comer.PosibleComer;
 
 /**
@@ -20,18 +20,18 @@ public abstract class SerVivoAbstracto {
         this.cComer = new PosibleComer();
     }
 
-    public void comer(Alimento alimento) {
+    public void comer(IAlimento alimento) {
         if (puedeComer(alimento)) {
             System.out.print(this.nombre + " ");
             cComer.ejecutar();
-            System.out.printf(alimento.getTipo() + "\n");
+            System.out.printf(alimento.toString() + "\n");
         } else {
             System.out.println(this.nombre + " no puede comer este tipo de alimento. ("
-                    + alimento.getTipo() + ")");
+                    + alimento.toString() + ")");
         }
     }
 
-    public abstract boolean puedeComer(Alimento alimento);
+    public abstract boolean puedeComer(IAlimento alimento);
 
     public String getNombre() {
         return nombre;

@@ -3,7 +3,7 @@ package bies.planet;
 import bies.alimentacion.carronia.Carronia;
 import bies.ente.SerVivoAbstracto;
 import bies.ente.innombrable.InnombrableAbstracto;
-import bies.ente.innombrable.cero.InnombrableCero;
+import bies.ente.innombrable.cero.Innombrable;
 import bies.ente.insecto.arana.Arana;
 import bies.ente.insecto.InsectoAbstracto;
 import bies.ente.insecto.mariposa.Mariposa;
@@ -56,7 +56,7 @@ public class Bies {
             if (ser instanceof InsectoAbstracto) {
                 degradarInsecto((InsectoAbstracto) ser);
             } else if (ser instanceof InnombrableAbstracto) {
-                InnombrableCero innombrable = (InnombrableCero) ser;
+                Innombrable innombrable = (Innombrable) ser;
                 innombrable.volar();
                 innombrable.caminar();
             }
@@ -129,7 +129,7 @@ public class Bies {
     private void mostrarCarronias() {
         formateadorDeTitulo(" - > Carroñas < - ");
         System.out.println("Luego de aplicar la degradación, se generaron "
-                + this.numeroDeCarronias() + " carronias:");
+                + this.numeroDeCarronias() + " carroñas:");
 
         for (SerVivoAbstracto ser : seresVivos) {
             if (ser instanceof InsectoAbstracto && ((InsectoAbstracto) ser).esCarronia()) {
@@ -176,8 +176,7 @@ public class Bies {
 
         boolean consumido = false;
         for (SerVivoAbstracto carroñaSer : seresVivos) {
-            if (carroñaSer instanceof InsectoAbstracto
-                    && ((InsectoAbstracto) carroñaSer).esCarronia()) {
+            if (carroñaSer instanceof InsectoAbstracto && ((InsectoAbstracto) carroñaSer).esCarronia()) {
                 if (intentarComerCarroña(insecto, (InsectoAbstracto) carroñaSer)) {
                     seresVivosConsumidos.add(carroñaSer);
                     consumido = true;
@@ -255,12 +254,11 @@ public class Bies {
      * @param carroñaSer
      * @param carroña
      */
-    private void informarFallido(InsectoAbstracto insecto, SerVivoAbstracto carroñaSer,
-            Carronia carroña) {
+    private void informarFallido(InsectoAbstracto insecto, SerVivoAbstracto carroñaSer, Carronia carroña) {
         System.out.println(insecto.getNombre() + " trató de comer a " + carroñaSer.getNombre()
-                + " pero no pudo.");
+                + " pero no quizo..");
         System.out.println("    MOTIVO: " + ANSI_RED + insecto.getNombre() + " no come "
-                + carroña.insectoOriginal().getNombre() + " :( " + ANSI_RESET);
+                + carroña.insectoOriginal().getNombre() + " (carroña) :( " + ANSI_RESET);
     }
 
     /**

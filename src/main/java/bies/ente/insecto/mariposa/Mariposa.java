@@ -1,11 +1,11 @@
 package bies.ente.insecto.mariposa;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.alimentacion.carronia.Carronia;
 import bies.alimentacion.miel.Miel;
 import bies.comportamiento.volar.IComportamientoVolar;
-import bies.comportamiento.volar.ImposibleVolar;
-import bies.comportamiento.volar.PosibleVolar;
+import bies.comportamiento.volar.imposibleVolar.ImposibleVolar;
+import bies.comportamiento.volar.posibleVolar.PosibleVolar;
 import bies.ente.insecto.InsectoAbstracto;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
 
@@ -42,7 +42,7 @@ public class Mariposa extends InsectoAbstracto {
     }
 
     @Override
-    public boolean puedeComer(Alimento alimento) {
+    public boolean puedeComer(IAlimento alimento) {
         return (alimento instanceof Miel);
     }
 

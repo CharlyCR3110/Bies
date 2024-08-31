@@ -1,6 +1,6 @@
 package bies.alimentacion.carronia;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.ente.insecto.InsectoAbstracto;
 
 /**
@@ -12,9 +12,9 @@ import bies.ente.insecto.InsectoAbstracto;
  * @since 8/7/2024 - 3:09 PM
  */
 
-public record Carronia(InsectoAbstracto insectoOriginal) implements Alimento {
+public record Carronia(InsectoAbstracto insectoOriginal) implements IAlimento {
     @Override
-    public String getTipo() {
-        return "Carronia";
+    public String toString() {
+        return "Carroña";
     }
 }

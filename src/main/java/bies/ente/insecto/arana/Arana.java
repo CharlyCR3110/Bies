@@ -1,11 +1,11 @@
 package bies.ente.insecto.arana;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.alimentacion.carronia.Carronia;
 import bies.alimentacion.hongo.Hongo;
 import bies.comportamiento.caminar.IComportamientoCaminar;
-import bies.comportamiento.caminar.ImposibleCaminar;
-import bies.comportamiento.caminar.PosibleCaminar;
+import bies.comportamiento.caminar.imposibleCaminar.ImposibleCaminar;
+import bies.comportamiento.caminar.posibleCaminar.PosibleCaminar;
 import bies.ente.insecto.InsectoAbstracto;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
 
@@ -43,7 +43,7 @@ public class Arana extends InsectoAbstracto {
     }
 
     @Override
-    public boolean puedeComer(Alimento alimento) {
+    public boolean puedeComer(IAlimento alimento) {
         return (alimento instanceof Hongo);
     }
 

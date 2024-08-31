@@ -1,6 +1,6 @@
 package bies;
 
-import bies.ente.innombrable.cero.InnombrableCero;
+import bies.ente.innombrable.cero.Innombrable;
 import bies.ente.insecto.arana.Arana;
 import bies.ente.insecto.mariposa.Mariposa;
 import bies.ente.insecto.mosca.Mosca;
@@ -17,14 +17,20 @@ import bies.planet.Bies;
 
 public class Main {
     public static void main(String[] args) {
+        
         Bies bies = new Bies();
 
         Arana arana_1 = new Arana("Viuda Negra");
         Mosca mosca_1 = new Mosca("Mosca domestica");
+        Mosca mosca_2 = new Mosca("Mosca de campo");
         Mariposa mariposa_1 = new Mariposa("Morpho Azul");
-        InnombrableCero innombrableCero = new InnombrableCero("Innombrable");
+        Innombrable innombrable = new Innombrable("Innombrable");
 
-        bies.agregarSerVivo(arana_1).agregarSerVivo(mosca_1).agregarSerVivo(mariposa_1).agregarSerVivo(innombrableCero);
+        bies.agregarSerVivo(arana_1)
+            .agregarSerVivo(mosca_1)
+            .agregarSerVivo(mosca_2)
+            .agregarSerVivo(mariposa_1)
+            .agregarSerVivo(innombrable);
 
         bies.mostrarSeres();
 

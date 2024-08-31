@@ -1,4 +1,4 @@
-package bies.ente.insecto.estado.normal;
+package bies.ente.insecto.estado.noCarronia;
 
 import bies.ente.insecto.estado.IEstadoInsecto;
 
@@ -10,5 +10,9 @@ import bies.ente.insecto.estado.IEstadoInsecto;
  * @version 1.0
  * @since 8/7/2024 - 3:25 PM
  */
-public class EstadoNormal implements IEstadoInsecto {
+public class EstadoNoCarronia implements IEstadoInsecto {
+    @Override
+    public boolean esCarronia() {
+        return false;
+    }
 }

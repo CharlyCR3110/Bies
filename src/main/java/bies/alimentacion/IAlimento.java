@@ -8,6 +8,6 @@ package bies.alimentacion;
  * @version 1.0
  * @since 8/7/2024 - 2:23 PM
  */
-public interface Alimento {
-    String getTipo();
+public interface IAlimento {
+    
 }

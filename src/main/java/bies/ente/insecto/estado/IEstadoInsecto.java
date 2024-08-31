@@ -1,4 +1,4 @@
-package bies.ente.insecto.estado;
+package bies.ente.insecto.estado; 
 
 /**
  * @author Carlos G. G.
@@ -9,4 +9,5 @@ package bies.ente.insecto.estado;
  * @since 8/7/2024 - 3:25 PM
  */
 public interface IEstadoInsecto {
+    boolean esCarronia();
 }
