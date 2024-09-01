@@ -1,6 +1,6 @@
 package bies.ente;
 
-import bies.alimentacion.Alimento;
+import bies.alimentacion.IAlimento;
 import bies.comportamiento.comer.PosibleComer;
 
 /**
@@ -15,23 +15,40 @@ public abstract class SerVivoAbstracto {
     private String nombre;
     private PosibleComer cComer;
 
+    /**
+     * Constructor para crear un ser vivo con un nombre específico.
+     * Cabe reacalcar que todos ser Vivo se alimenta.. (Come)
+     * 
+     * @param nombre El nombre del ser vivo.
+     */
     public SerVivoAbstracto(String nombre) {
         this.nombre = nombre;
         this.cComer = new PosibleComer();
     }
 
-    public void comer(Alimento alimento) {
+    /**
+     * Método para que el ser vivo intente comer un alimento.
+     * 
+     * @param alimento El alimento que el ser vivo intentará comer.
+     */
+    public void comer(IAlimento alimento) {
         if (puedeComer(alimento)) {
             System.out.print(this.nombre + " ");
             cComer.ejecutar();
-            System.out.printf(alimento.getTipo() + "\n");
+            System.out.printf(alimento.toString() + "\n");
         } else {
             System.out.println(this.nombre + " no puede comer este tipo de alimento. ("
-                    + alimento.getTipo() + ")");
+                    + alimento.toString() + ")");
         }
     }
-
-    public abstract boolean puedeComer(Alimento alimento);
+    
+    /**
+     * Método abstracto que determina si el ser vivo puede comer un tipo de alimento.
+     * 
+     * @param alimento El alimento que se evaluará.
+     * @return true si el ser vivo puede comer el alimento, false en caso contrario.
+     */
+    public abstract boolean puedeComer(IAlimento alimento);
 
     public String getNombre() {
         return nombre;
