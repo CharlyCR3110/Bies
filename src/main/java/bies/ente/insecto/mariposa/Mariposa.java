@@ -59,11 +59,13 @@ public class Mariposa extends InsectoAbstracto {
      */
     @Override
     public void verificarEstado() {
-        if (nAlas < 2) {
-            Carronia nuevaCarronia = new Carronia(this);
-            this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
-            this.cVolar = new ImposibleVolar();
-            System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá volar.");
+        if(!esCarronia()){
+            if (nAlas < 2) {
+                Carronia nuevaCarronia = new Carronia(this);
+                this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
+                this.cVolar = new ImposibleVolar();
+                System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá volar.");
+            }
         }
     }
 

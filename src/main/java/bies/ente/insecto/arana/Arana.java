@@ -59,11 +59,13 @@ public class Arana extends InsectoAbstracto {
      */
     @Override
     public void verificarEstado() {
-        if (nPatas < 2) {
-            Carronia nuevaCarronia = new Carronia(this);
-            this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
-            this.cCaminar = new ImposibleCaminar();
-            System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá caminar.");
+        if(!esCarronia()){
+            if (nPatas < 2) {
+                Carronia nuevaCarronia = new Carronia(this);
+                this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
+                this.cCaminar = new ImposibleCaminar();
+                System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá caminar.");
+            }
         }
     }
 
