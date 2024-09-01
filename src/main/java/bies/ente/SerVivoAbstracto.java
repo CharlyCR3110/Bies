@@ -15,11 +15,22 @@ public abstract class SerVivoAbstracto {
     private String nombre;
     private PosibleComer cComer;
 
+    /**
+     * Constructor para crear un ser vivo con un nombre específico.
+     * Cabe reacalcar que todos ser Vivo se alimenta.. (Come)
+     * 
+     * @param nombre El nombre del ser vivo.
+     */
     public SerVivoAbstracto(String nombre) {
         this.nombre = nombre;
         this.cComer = new PosibleComer();
     }
 
+    /**
+     * Método para que el ser vivo intente comer un alimento.
+     * 
+     * @param alimento El alimento que el ser vivo intentará comer.
+     */
     public void comer(IAlimento alimento) {
         if (puedeComer(alimento)) {
             System.out.print(this.nombre + " ");
@@ -30,7 +41,13 @@ public abstract class SerVivoAbstracto {
                     + alimento.toString() + ")");
         }
     }
-
+    
+    /**
+     * Método abstracto que determina si el ser vivo puede comer un tipo de alimento.
+     * 
+     * @param alimento El alimento que se evaluará.
+     * @return true si el ser vivo puede comer el alimento, false en caso contrario.
+     */
     public abstract boolean puedeComer(IAlimento alimento);
 
     public String getNombre() {
