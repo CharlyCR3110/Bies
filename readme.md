@@ -26,7 +26,7 @@ En Bies, hay tres tipos principales de insectos:
 
 2. **Carroña**:
    - La carroña es un estado de un insecto que ha perdido su capacidad de volar y/o caminar.
-   - La carroña es consumida por otros insectos según su dieta.
+   - Es un nuevo tipo de alimento, que puede ser consumido por otros insectos, según sus preferencias alimenticias.
 
 3. **Innombrables**:
    - Entes no vivos que pueden volar o caminar, pero no son insectos.
@@ -40,7 +40,7 @@ En Bies, hay tres tipos principales de insectos:
 - **Mosca**: Hereda de `InsectoAbstracto`, implementa comportamiento específico para las moscas.
 - **Mariposa**: Hereda de `InsectoAbstracto`, implementa comportamiento específico para las mariposas.
 - **Arana**: Hereda de `InsectoAbstracto`, implementa comportamiento específico para las arañas.
-- **Carronia**: Representa un insecto en estado de carroña.
+- **Alimento (Record)**: Representa un alimento con nombre.
 - **InnombrableAbstracto**: Representa entes no vivos que pueden volar o caminar.
 - **Bies**: Clase principal que gestiona la lista de seres vivos y coordina la degradación y consumo de carroñas.
 
