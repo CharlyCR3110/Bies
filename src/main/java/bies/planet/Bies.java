@@ -4,10 +4,8 @@ import bies.alimentacion.Alimento;
 import bies.ente.SerVivoAbstracto;
 import bies.ente.innombrable.InnombrableAbstracto;
 import bies.ente.innombrable.cero.Innombrable;
-import bies.ente.insecto.arana.Arana;
 import bies.ente.insecto.InsectoAbstracto;
-import bies.ente.insecto.mariposa.Mariposa;
-import bies.ente.insecto.mosca.Mosca;
+
 
 import java.util.ArrayList;
 import java.util.List;
