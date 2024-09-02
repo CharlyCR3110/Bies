@@ -71,11 +71,10 @@ public class Bies {
      * @return Una cadena de texto con los nombres de los seres vivos.
      */
     public String getNombreSeres() {
-        StringBuilder sb = new StringBuilder();
-        for (SerVivoAbstracto ser : seresVivos) {
-            sb.append(ser.getNombre()).append("\n");
-        }
-        return sb.toString();
+        return seresVivos.stream()
+                .map(SerVivoAbstracto::getNombre)
+                .reduce((acc, nombre) -> acc + "\n" + nombre)
+                .orElse("");
     }
 
     /**
