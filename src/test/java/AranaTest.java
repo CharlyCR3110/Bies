@@ -1,5 +1,4 @@
-import bies.alimentacion.carronia.Carronia;
-import bies.alimentacion.miel.Miel;
+import bies.alimentacion.Alimento;
 import bies.ente.insecto.arana.Arana;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -31,7 +30,7 @@ public class AranaTest {
     @Test
     public void testAranaNoPuedeComerMiel() {
         Arana arana = new Arana("Viuda Negra");
-        Miel miel = new Miel();
+        Alimento miel = new Alimento("Miel");
         assertFalse(arana.puedeComer(miel));
     }
 
@@ -44,7 +43,7 @@ public class AranaTest {
     @Test
     public void testAranaPuedeComerCarronia() {
         Arana arana = new Arana("Viuda Negra");
-        Carronia carronia = new Carronia(arana);
+        Alimento carronia = new Alimento("Carronia");
         assertFalse(arana.puedeComer(carronia));
     }
 }
