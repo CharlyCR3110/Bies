@@ -1,7 +1,6 @@
 package bies.ente.insecto.mosca;
 
-import bies.alimentacion.IAlimento;
-import bies.alimentacion.carronia.Carronia;
+import bies.alimentacion.Alimento;
 import bies.comportamiento.caminar.IComportamientoCaminar;
 import bies.comportamiento.caminar.imposibleCaminar.ImposibleCaminar;
 import bies.comportamiento.caminar.posibleCaminar.PosibleCaminar;
@@ -78,13 +77,13 @@ public class Mosca extends InsectoAbstracto {
     @Override
     public void verificarEstado() {
         if (nAlas < 2) {
-            Carronia nuevaCarronia = new Carronia(this);
+            Alimento nuevaCarronia = new Alimento("Mosca");
             this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
             this.cVolar = new ImposibleVolar();
             System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá volar.");
         }
         if (nPatas < 2) {
-            Carronia nuevaCarronia = new Carronia(this);
+            Alimento nuevaCarronia = new Alimento("Mosca");
             this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
             this.cCaminar = new ImposibleCaminar();
             System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá caminar.");
@@ -95,11 +94,11 @@ public class Mosca extends InsectoAbstracto {
      * Método que determina si la mosca puede comer el alimento proporcionado.
      * 
      * @param alimento El alimento a verificar.
-     * @return true si el alimento es una instancia de {@link Carronia}, false en caso contrario.
+     * @return true si el nombre del alimento es "Carronia", false en caso contrario.
      */
     @Override
-    public boolean puedeComer(IAlimento alimento) {
-        return (alimento instanceof Carronia);
+    public boolean puedeComer(Alimento alimento) {
+        return alimento.nombre() == "Carronia";
     }
 
     /**
