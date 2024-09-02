@@ -1,6 +1,6 @@
 package bies.ente.innombrable;
 
-import bies.alimentacion.IAlimento;
+import bies.alimentacion.Alimento;
 import bies.comportamiento.IComportamiento;
 import bies.ente.SerVivoAbstracto;
 
@@ -45,7 +45,7 @@ public abstract class InnombrableAbstracto extends SerVivoAbstracto {
      * @return {@code true} si el ser vivo puede comer el alimento, {@code false} en caso contrario.
      */
     @Override
-    public boolean puedeComer(IAlimento alimento) {
+    public boolean puedeComer(Alimento alimento) {
         return true;
     }
     

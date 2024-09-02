@@ -1,8 +1,6 @@
 package bies.ente.insecto.arana;
 
-import bies.alimentacion.IAlimento;
-import bies.alimentacion.carronia.Carronia;
-import bies.alimentacion.hongo.Hongo;
+import bies.alimentacion.Alimento;
 import bies.comportamiento.caminar.IComportamientoCaminar;
 import bies.comportamiento.caminar.imposibleCaminar.ImposibleCaminar;
 import bies.comportamiento.caminar.posibleCaminar.PosibleCaminar;
@@ -60,7 +58,7 @@ public class Arana extends InsectoAbstracto {
     @Override
     public void verificarEstado() {
         if (nPatas < 2) {
-            Carronia nuevaCarronia = new Carronia(this);
+            Alimento nuevaCarronia = new Alimento("Arana");
             this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
             this.cCaminar = new ImposibleCaminar();
             System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá caminar.");
@@ -71,11 +69,11 @@ public class Arana extends InsectoAbstracto {
      * Método que determina si la araña puede comer el alimento proporcionado.
      * 
      * @param alimento El alimento a verificar.
-     * @return true si el alimento es una instancia de {@link Hongo}, false en caso contrario.
+     * @return true si el alimento es un hongo, false en caso contrario.
      */
     @Override
-    public boolean puedeComer(IAlimento alimento) {
-        return (alimento instanceof Hongo);
+    public boolean puedeComer(Alimento alimento) {
+        return alimento.nombre() == "Hongo";
     }
 
     /**

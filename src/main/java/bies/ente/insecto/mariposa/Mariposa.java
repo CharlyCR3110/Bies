@@ -1,8 +1,6 @@
 package bies.ente.insecto.mariposa;
 
-import bies.alimentacion.IAlimento;
-import bies.alimentacion.carronia.Carronia;
-import bies.alimentacion.miel.Miel;
+import bies.alimentacion.Alimento;
 import bies.comportamiento.volar.IComportamientoVolar;
 import bies.comportamiento.volar.imposibleVolar.ImposibleVolar;
 import bies.comportamiento.volar.posibleVolar.PosibleVolar;
@@ -60,7 +58,7 @@ public class Mariposa extends InsectoAbstracto {
     @Override
     public void verificarEstado() {
         if (nAlas < 2) {
-            Carronia nuevaCarronia = new Carronia(this);
+            Alimento nuevaCarronia = new Alimento("Mariposa");
             this.cambiarEstado(new EstadoCarronia(nuevaCarronia));
             this.cVolar = new ImposibleVolar();
             System.out.println(this.getNombre() + " se ha convertido en carroña y no podrá volar.");
@@ -71,11 +69,11 @@ public class Mariposa extends InsectoAbstracto {
      * Método que determina si la mariposa puede comer el alimento proporcionado.
      * 
      * @param alimento El alimento a verificar.
-     * @return true si el alimento es una instancia de {@link Miel}, false en caso contrario.
+     * @return true si el alimento es una instancia de {@link Alimento}, false en caso contrario.
      */
     @Override
-    public boolean puedeComer(IAlimento alimento) {
-        return (alimento instanceof Miel);
+    public boolean puedeComer(Alimento alimento) {
+        return alimento.nombre() == "Miel";
     }
 
     /**

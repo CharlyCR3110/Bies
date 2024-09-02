@@ -1,6 +1,6 @@
 package bies.planet;
 
-import bies.alimentacion.carronia.Carronia;
+import bies.alimentacion.Alimento;
 import bies.ente.SerVivoAbstracto;
 import bies.ente.innombrable.InnombrableAbstracto;
 import bies.ente.innombrable.cero.Innombrable;
@@ -267,10 +267,10 @@ public class Bies {
         }
 
         boolean consumido = false;
-        for (SerVivoAbstracto carroñaSer : seresVivos) {
-            if (carroñaSer instanceof InsectoAbstracto && ((InsectoAbstracto) carroñaSer).esCarronia()) {
-                if (intentarComerCarroña(insecto, (InsectoAbstracto) carroñaSer)) {
-                    seresVivosConsumidos.add(carroñaSer);
+        for (SerVivoAbstracto carronniaSer : seresVivos) {
+            if (carronniaSer instanceof InsectoAbstracto && ((InsectoAbstracto) carronniaSer).esCarronia()) {
+                if (intentarComerCarroña(insecto, (InsectoAbstracto) carronniaSer)) {
+                    seresVivosConsumidos.add(carronniaSer);
                     consumido = true;
                     break;
                 }
@@ -285,16 +285,16 @@ public class Bies {
      * Intentar que el insecto coma la carroña
      * 
      * @param insecto El insecto que intentará comer la carroña.
-     * @param carroñaSer El ser que representa la carroña.
+     * @param carronniaSer El ser que representa la carroña.
      * @return true si el insecto comió la carroña, false en caso contrario.
      */
-    private boolean intentarComerCarroña(InsectoAbstracto insecto, InsectoAbstracto carroñaSer) {
-        Carronia carroña = carroñaSer.obtenerCarronia();
-        if (insecto.puedeComer(carroña)) {
-            insecto.comer(carroña);
+    private boolean intentarComerCarroña(InsectoAbstracto insecto, InsectoAbstracto carronniaSer) {
+        Alimento carronia = carronniaSer.obtenerCarronia();
+        if (insecto.puedeComer(carronia)) {
+            insecto.comer(carronia);
             return true;
         } else {
-            informarFallido(insecto, carroñaSer, carroña);
+            informarFallido(insecto, carronniaSer, carronia);
             return false;
         }
     }
@@ -343,14 +343,14 @@ public class Bies {
      * Informar que el insecto no pudo comer la carroña
      * 
      * @param insecto
-     * @param carroñaSer
-     * @param carroña
+     * @param carronniaSer
+     * @param carronia
      */
-    private void informarFallido(InsectoAbstracto insecto, SerVivoAbstracto carroñaSer, Carronia carroña) {
-        System.out.println(insecto.getNombre() + " trató de comer a " + carroñaSer.getNombre()
+    private void informarFallido(InsectoAbstracto insecto, SerVivoAbstracto carronniaSer, Alimento carronia) {
+        System.out.println(insecto.getNombre() + " trató de comer a " + carronniaSer.getNombre()
                 + " pero no quizo..");
         System.out.println("    MOTIVO: " + ANSI_RED + insecto.getNombre() + " no come "
-                + carroña.insectoOriginal().getNombre() + " (carroña) :( " + ANSI_RESET);
+                + carronia.nombre() + ANSI_RESET);
     }
 
     /**
