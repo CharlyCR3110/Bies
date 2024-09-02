@@ -161,13 +161,11 @@ public class Bies {
     private void mostrarCarronias() {
         formateadorDeTitulo(" - > Carroñas < - ");
         System.out.println("Luego de aplicar la degradación, se generaron "
-                + this.numeroDeCarronias() + " carroñas:");
+                + numeroDeCarronias() + " carroñas:");
 
-        for (SerVivoAbstracto ser : seresVivos) {
-            if (ser instanceof InsectoAbstracto && ((InsectoAbstracto) ser).esCarronia()) {
-                System.out.println("    -> " + ser.getNombre());
-            }
-        }
+        seresVivos.stream()
+                .filter(ser -> ser instanceof InsectoAbstracto && ((InsectoAbstracto) ser).esCarronia())
+                .forEach(ser -> System.out.println("    -> " + ser.getNombre()));
     }
 
     private static final String ANSI_ORANGE = "\u001B[33m"; // Amarillo
