@@ -10,6 +10,8 @@ import bies.comportamiento.volar.posibleVolar.PosibleVolar;
 import bies.ente.insecto.InsectoAbstracto;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
 
+import java.util.Random;
+
 /**
  * @author Carlos G. G.
  * @author Isaac F. B. C.
@@ -18,9 +20,10 @@ import bies.ente.insecto.estado.carronia.EstadoCarronia;
  * @version 1.0
  * @since 8/7/2024 - 11:25 AM
  */
+
 /**
  * Clase que representa una mosca, extendiendo {@link InsectoAbstracto}.
- * 
+ * <p>
  * Esta clase concreta implementa el comportamiento específico de una mosca,
  * incluyendo el número de patas y alas, así como la capacidad de caminar y volar.
  * También gestiona el cambio de estado en caso de pérdida de patas o alas y la
@@ -30,20 +33,20 @@ public class Mosca extends InsectoAbstracto {
 
     // Número inicial de patas de la mosca.
     private int nPatas = 2;
-    
+
     // Número inicial de alas de la mosca.
     private int nAlas = 2;
-    
+
     // Comportamiento de caminar asociado a la mosca.
     private IComportamientoCaminar cCaminar;
-    
+
     // Comportamiento de volar asociado a la mosca.
     private IComportamientoVolar cVolar;
 
     /**
      * Constructor que inicializa el nombre de la mosca y asigna los comportamientos
      * de caminar y volar posibles.
-     * 
+     *
      * @param nombre El nombre de la mosca.
      */
     public Mosca(String nombre) {
@@ -92,7 +95,7 @@ public class Mosca extends InsectoAbstracto {
 
     /**
      * Método que determina si la mosca puede comer el alimento proporcionado.
-     * 
+     *
      * @param alimento El alimento a verificar.
      * @return true si el nombre del alimento es "Carronia", false en caso contrario.
      */
@@ -123,7 +126,7 @@ public class Mosca extends InsectoAbstracto {
 
     /**
      * Getter para obtener el número actual de patas de la mosca.
-     * 
+     *
      * @return El número de patas.
      */
     public int getnPatas() {
@@ -132,10 +135,34 @@ public class Mosca extends InsectoAbstracto {
 
     /**
      * Getter para obtener el número actual de alas de la mosca.
-     * 
+     *
      * @return El número de alas.
      */
     public int getnAlas() {
         return this.nAlas;
+    }
+
+    /**
+     * Método que simula la degradación del insecto.
+     *
+     * @return true si el insecto se degradó, false en caso contrario.
+     * @throws IllegalStateException si el insecto ya es carroña.
+     */
+    @Override
+    public boolean degradar() {
+        if (this.esCarronia()) {
+            throw new IllegalStateException("La mariposa ya es carroña.");
+        }
+        int pieza = new Random().nextInt(3);
+
+        if (pieza == 0) {
+            this.perderPata();
+            return true;
+        } else if (pieza == 1) {
+            this.perderAla();
+            return true;
+        }
+
+        return false;
     }
 }

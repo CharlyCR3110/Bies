@@ -4,10 +4,8 @@ import bies.alimentacion.Alimento;
 import bies.ente.SerVivoAbstracto;
 import bies.ente.innombrable.InnombrableAbstracto;
 import bies.ente.innombrable.cero.Innombrable;
-import bies.ente.insecto.arana.Arana;
 import bies.ente.insecto.InsectoAbstracto;
-import bies.ente.insecto.mariposa.Mariposa;
-import bies.ente.insecto.mosca.Mosca;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +20,10 @@ import java.util.Random;
  * @since 8/7/2024 - 11:20 AM
  */
 
- /**
- * Clase principal que representa el planeta Bies, un lugar habitado por 
- * diferentes tipos de seres vivos. Esta clase se encarga de gestionar 
- * los seres vivos presentes, aplicar degradación a los mismos, y 
- * manejar la interacción entre ellos, como el consumo de carroñas.
+/**
+ * Clase principal que representa el planeta Bies, un lugar habitado por diferentes tipos de seres
+ * vivos. Esta clase se encarga de gestionar los seres vivos presentes, aplicar degradación a los
+ * mismos, y manejar la interacción entre ellos, como el consumo de carroñas.
  */
 public class Bies {
 
@@ -53,8 +50,8 @@ public class Bies {
     }
 
     /**
-     * Muestra en la consola la lista de todos los seres vivos presentes en 
-     * el planeta Bies, junto con la cantidad total de seres.
+     * Muestra en la consola la lista de todos los seres vivos presentes en el planeta Bies, junto
+     * con la cantidad total de seres.
      */
     public void mostrarSeres() {
         System.out.println("Mostrando los " + this.seresVivos.size()
@@ -65,24 +62,20 @@ public class Bies {
     }
 
     /**
-     * Obtiene una cadena de texto con los nombres de todos los seres vivos 
-     * presentes en el planeta Bies.
+     * Obtiene una cadena de texto con los nombres de todos los seres vivos presentes en el planeta
+     * Bies.
      *
      * @return Una cadena de texto con los nombres de los seres vivos.
      */
     public String getNombreSeres() {
-        StringBuilder sb = new StringBuilder();
-        for (SerVivoAbstracto ser : seresVivos) {
-            sb.append(ser.getNombre()).append("\n");
-        }
-        return sb.toString();
+        return seresVivos.stream().map(SerVivoAbstracto::getNombre)
+                .reduce((acc, nombre) -> acc + "\n" + nombre).orElse("");
     }
 
     /**
-     * Aplica un proceso de degradación a cada ser vivo en el planeta Bies.
-     * Este proceso incluye la posibilidad de perder partes del cuerpo y 
-     * convierte algunos seres en carroña si corresponde. Luego, procesa 
-     * el consumo de estas carroñas por otros seres.
+     * Aplica un proceso de degradación a cada ser vivo en el planeta Bies. Este proceso incluye la
+     * posibilidad de perder partes del cuerpo y convierte algunos seres en carroña si corresponde.
+     * Luego, procesa el consumo de estas carroñas por otros seres.
      */
     public void aplicarDegradacion() {
         for (SerVivoAbstracto ser : seresVivos) {
@@ -104,68 +97,21 @@ public class Bies {
     }
 
     /**
-     * Aplica el proceso de degradación a un insecto en particular, delegando 
-     * a métodos específicos según el tipo de insecto.
+     * Aplica el proceso de degradación a un insecto en particular,
      *
      * @param insecto El insecto a degradar.
      */
     private void degradarInsecto(InsectoAbstracto insecto) {
-        if (insecto instanceof Mariposa) {
-            degradarMariposa((Mariposa) insecto);
-        } else if (insecto instanceof Arana) {
-            degradarArana((Arana) insecto);
-        } else if (insecto instanceof Mosca) {
-            degradarMosca((Mosca) insecto);
-        }
-
-    }
-
-    /**
-     * Degrada una mariposa, permitiéndole volar y potencialmente perder 
-     * un ala en el proceso.
-     *
-     * @param mariposa La mariposa a degradar.
-     */
-    private void degradarMariposa(Mariposa mariposa) {
-        mariposa.volar();
-        if (sePierdeParte(mariposa.getnAlas())) {
-            mariposa.perderAla();
+        if (insecto.degradar()) {
+            System.out.println("    -> " + insecto.getNombre() + " se degradó.");
+        } else {
+            System.out.println("    -> " + insecto.getNombre() + " no se degradó.");
         }
     }
 
     /**
-     * Degrada una araña, permitiéndole caminar y potencialmente perder 
-     * una pata en el proceso.
-     *
-     * @param arana La araña a degradar.
-     */
-    private void degradarArana(Arana arana) {
-        arana.caminar();
-        if (sePierdeParte(arana.getnPatas())) {
-            arana.perderPata();
-        }
-    }
-
-    /**
-     * Degrada una mosca, permitiéndole volar y caminar, y potencialmente 
-     * perder alas y patas en el proceso.
-     *
-     * @param mosca La mosca a degradar.
-     */
-    private void degradarMosca(Mosca mosca) {
-        mosca.volar();
-        if (sePierdeParte(mosca.getnAlas())) {
-            mosca.perderAla();
-        }
-        mosca.caminar();
-        if (sePierdeParte(mosca.getnPatas())) {
-            mosca.perderPata();
-        }
-    }
-
-    /**
-     * Imprime en consola un título formateado para indicar el inicio del 
-     * procesamiento de un ser vivo en particular.
+     * Imprime en consola un título formateado para indicar el inicio del procesamiento de un ser
+     * vivo en particular.
      *
      * @param nombre El nombre del ser vivo.
      */
@@ -174,16 +120,16 @@ public class Bies {
     }
 
     /**
-     * Imprime en consola un subtítulo formateado para indicar el inicio de 
-     * la lista de acciones realizadas por un ser vivo.
+     * Imprime en consola un subtítulo formateado para indicar el inicio de la lista de acciones
+     * realizadas por un ser vivo.
      */
     private void formateadorDeSubtituloAcciones() {
         System.out.println("---> Acciones:");
     }
 
     /**
-     * Determina si una parte del cuerpo del ser vivo se pierde durante el 
-     * proceso de degradación, basado en un cálculo aleatorio.
+     * Determina si una parte del cuerpo del ser vivo se pierde durante el proceso de degradación,
+     * basado en un cálculo aleatorio.
      *
      * @param partes El número total de partes que tiene el ser vivo.
      * @return true si una parte se pierde, false en caso contrario.
@@ -193,8 +139,8 @@ public class Bies {
     }
 
     /**
-     * Cuenta el número de carroñas (seres vivos que han muerto y pueden 
-     * ser consumidos) presentes en la lista de seres vivos del planeta Bies.
+     * Cuenta el número de carroñas (seres vivos que han muerto y pueden ser consumidos) presentes
+     * en la lista de seres vivos del planeta Bies.
      *
      * @return El número de carroñas presentes.
      */
@@ -209,19 +155,17 @@ public class Bies {
     }
 
     /**
-     * Muestra en consola una lista de todos los seres vivos que han sido 
-     * convertidos en carroñas después del proceso de degradación.
+     * Muestra en consola una lista de todos los seres vivos que han sido convertidos en carroñas
+     * después del proceso de degradación.
      */
     private void mostrarCarronias() {
         formateadorDeTitulo(" - > Carroñas < - ");
         System.out.println("Luego de aplicar la degradación, se generaron "
-                + this.numeroDeCarronias() + " carroñas:");
+                + numeroDeCarronias() + " carroñas:");
 
-        for (SerVivoAbstracto ser : seresVivos) {
-            if (ser instanceof InsectoAbstracto && ((InsectoAbstracto) ser).esCarronia()) {
-                System.out.println("    -> " + ser.getNombre());
-            }
-        }
+        seresVivos.stream()
+                .filter(ser -> ser instanceof InsectoAbstracto && ((InsectoAbstracto) ser).esCarronia())
+                .forEach(ser -> System.out.println("    -> " + ser.getNombre()));
     }
 
     private static final String ANSI_ORANGE = "\u001B[33m"; // Amarillo
@@ -231,8 +175,8 @@ public class Bies {
     private static final String ANSI_RESET = "\u001B[0m";
 
     /**
-     * Procesa el consumo de carroñas por otros seres vivos, eliminando 
-     * aquellos que han sido consumidos de la lista de seres vivos.
+     * Procesa el consumo de carroñas por otros seres vivos, eliminando aquellos que han sido
+     * consumidos de la lista de seres vivos.
      */
     private void consumirCarronias() {
         formateadorDeTitulo(" - > Consumiendo las Carroñas < - ");
@@ -252,9 +196,8 @@ public class Bies {
     }
 
     /**
-     * Procesa un insecto en particular, intentando que este consuma una carroña 
-     * si es posible, y añadiendo la carroña consumida a una lista de seres vivos 
-     * eliminados.
+     * Procesa un insecto en particular, intentando que este consuma una carroña si es posible, y
+     * añadiendo la carroña consumida a una lista de seres vivos eliminados.
      * 
      * @param insecto El insecto que intenta consumir una carroña.
      * @param seresVivos La lista de seres vivos actuales.
@@ -268,7 +211,8 @@ public class Bies {
 
         boolean consumido = false;
         for (SerVivoAbstracto carronniaSer : seresVivos) {
-            if (carronniaSer instanceof InsectoAbstracto && ((InsectoAbstracto) carronniaSer).esCarronia()) {
+            if (carronniaSer instanceof InsectoAbstracto
+                    && ((InsectoAbstracto) carronniaSer).esCarronia()) {
                 if (intentarComerCarroña(insecto, (InsectoAbstracto) carronniaSer)) {
                     seresVivosConsumidos.add(carronniaSer);
                     consumido = true;
@@ -303,7 +247,8 @@ public class Bies {
      * Eliminar los seres vivos consumidos
      * 
      * @param seresVivos La lista de seres vivos presentes.
-     * @param seresVivosConsumidos La lista de seres vivos que han sido consumidos y deben ser eliminados.
+     * @param seresVivosConsumidos La lista de seres vivos que han sido consumidos y deben ser
+     *        eliminados.
      */
     private void eliminarSeresConsumidos(List<SerVivoAbstracto> seresVivos,
             List<SerVivoAbstracto> seresVivosConsumidos) {
@@ -346,7 +291,8 @@ public class Bies {
      * @param carronniaSer
      * @param carronia
      */
-    private void informarFallido(InsectoAbstracto insecto, SerVivoAbstracto carronniaSer, Alimento carronia) {
+    private void informarFallido(InsectoAbstracto insecto, SerVivoAbstracto carronniaSer,
+            Alimento carronia) {
         System.out.println(insecto.getNombre() + " trató de comer a " + carronniaSer.getNombre()
                 + " pero no quizo..");
         System.out.println("    MOTIVO: " + ANSI_RED + insecto.getNombre() + " no come "

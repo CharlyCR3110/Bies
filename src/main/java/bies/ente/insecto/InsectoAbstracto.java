@@ -59,8 +59,16 @@ public abstract class InsectoAbstracto extends SerVivoAbstracto {
      */
     public Alimento obtenerCarronia() {
         if(esCarronia()) {
-            return new Alimento("Carronia");
+            return this.estadoInsecto.getCarronia();
         }
         return null;
-    }   
+    }
+
+    /**
+     * Método que simula la degradación del insecto.
+     *
+     * @return true si el insecto se degradó, false en caso contrario.
+     * @throws IllegalStateException si el insecto ya es carroña.
+     */
+    public abstract boolean degradar();
 }

@@ -40,7 +40,7 @@ public class BiesTest {
         Mariposa mariposa = new Mariposa("Morpho Azul");
         bies.agregarSerVivo(mosca).agregarSerVivo(mariposa);
 
-        String expectedOutput = "Mosca domestica\nMorpho Azul\n";
+        String expectedOutput = "Mosca domestica\nMorpho Azul";
         assertEquals(expectedOutput, bies.getNombreSeres());
     }
 }

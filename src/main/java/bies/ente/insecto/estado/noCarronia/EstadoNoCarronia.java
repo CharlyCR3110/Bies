@@ -1,5 +1,6 @@
 package bies.ente.insecto.estado.noCarronia;
 
+import bies.alimentacion.Alimento;
 import bies.ente.insecto.estado.IEstadoInsecto;
 
 /**
@@ -27,5 +28,15 @@ public class EstadoNoCarronia implements IEstadoInsecto {
     @Override
     public boolean esCarronia() {
         return false;
+    }
+
+    /**
+     * Al no ser carroña, no se puede obtener un objeto `Carronia`.
+     *
+     * @return
+     */
+    @Override
+    public Alimento getCarronia() {
+        return null;
     }
 }
