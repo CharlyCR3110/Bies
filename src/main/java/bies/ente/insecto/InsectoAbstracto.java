@@ -59,7 +59,7 @@ public abstract class InsectoAbstracto extends SerVivoAbstracto {
      */
     public Alimento obtenerCarronia() {
         if(esCarronia()) {
-            return new Alimento("Carronia");
+            return this.estadoInsecto.getCarronia();
         }
         return null;
     }
