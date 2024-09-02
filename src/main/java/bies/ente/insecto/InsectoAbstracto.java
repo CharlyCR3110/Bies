@@ -1,9 +1,8 @@
 package bies.ente.insecto;
 
-import bies.alimentacion.carronia.Carronia;
+import bies.alimentacion.Alimento;
 import bies.ente.SerVivoAbstracto;
 import bies.ente.insecto.estado.IEstadoInsecto;
-import bies.ente.insecto.estado.carronia.EstadoCarronia;
 import bies.ente.insecto.estado.noCarronia.EstadoNoCarronia;
 
 
@@ -58,9 +57,9 @@ public abstract class InsectoAbstracto extends SerVivoAbstracto {
      * 
      * @return Un objeto de tipo Carronia si el insecto es carroña, null en caso contrario.
      */
-    public Carronia obtenerCarronia() {
+    public Alimento obtenerCarronia() {
         if(esCarronia()) {
-            return ((EstadoCarronia) estadoInsecto).getCarronia();
+            return new Alimento("Carronia");
         }
         return null;
     }   
