@@ -104,62 +104,15 @@ public class Bies {
     }
 
     /**
-     * Aplica el proceso de degradación a un insecto en particular, delegando 
-     * a métodos específicos según el tipo de insecto.
+     * Aplica el proceso de degradación a un insecto en particular,
      *
      * @param insecto El insecto a degradar.
      */
     private void degradarInsecto(InsectoAbstracto insecto) {
-        if (insecto instanceof Mariposa) {
-            degradarMariposa((Mariposa) insecto);
-        } else if (insecto instanceof Arana) {
-            degradarArana((Arana) insecto);
-        } else if (insecto instanceof Mosca) {
-            degradarMosca((Mosca) insecto);
-        }
-
-    }
-
-    /**
-     * Degrada una mariposa, permitiéndole volar y potencialmente perder 
-     * un ala en el proceso.
-     *
-     * @param mariposa La mariposa a degradar.
-     */
-    private void degradarMariposa(Mariposa mariposa) {
-        mariposa.volar();
-        if (sePierdeParte(mariposa.getnAlas())) {
-            mariposa.perderAla();
-        }
-    }
-
-    /**
-     * Degrada una araña, permitiéndole caminar y potencialmente perder 
-     * una pata en el proceso.
-     *
-     * @param arana La araña a degradar.
-     */
-    private void degradarArana(Arana arana) {
-        arana.caminar();
-        if (sePierdeParte(arana.getnPatas())) {
-            arana.perderPata();
-        }
-    }
-
-    /**
-     * Degrada una mosca, permitiéndole volar y caminar, y potencialmente 
-     * perder alas y patas en el proceso.
-     *
-     * @param mosca La mosca a degradar.
-     */
-    private void degradarMosca(Mosca mosca) {
-        mosca.volar();
-        if (sePierdeParte(mosca.getnAlas())) {
-            mosca.perderAla();
-        }
-        mosca.caminar();
-        if (sePierdeParte(mosca.getnPatas())) {
-            mosca.perderPata();
+        if (insecto.degradar()) {
+            System.out.println("    -> " + insecto.getNombre() + " se degradó.");
+        } else {
+            System.out.println("    -> " + insecto.getNombre() + " no se degradó.");
         }
     }
 
