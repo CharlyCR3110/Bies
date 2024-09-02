@@ -7,6 +7,8 @@ import bies.comportamiento.caminar.posibleCaminar.PosibleCaminar;
 import bies.ente.insecto.InsectoAbstracto;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
 
+import java.util.Random;
+
 /**
  * @author Carlos G. G.
  * @author Isaac F. B. C.
@@ -93,6 +95,28 @@ public class Arana extends InsectoAbstracto {
      */
     public int getnPatas() {
         return this.nPatas;
+    }
+
+
+    /**
+     * Método que simula la degradación del insecto.
+     *
+     * @return true si el insecto se degradó, false en caso contrario.
+     * @throws IllegalStateException si el insecto ya es carroña.
+     */
+    @Override
+    public boolean degradar() {
+        if (this.esCarronia()) {
+            throw new IllegalStateException("La mariposa ya es carroña.");
+        }
+        int random = new Random().nextInt(2);
+
+        if (random == 0) {
+            this.perderPata();
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
