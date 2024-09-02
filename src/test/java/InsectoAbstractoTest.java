@@ -1,6 +1,6 @@
+import bies.alimentacion.Alimento;
 import bies.ente.insecto.estado.carronia.EstadoCarronia;
 import bies.ente.insecto.arana.Arana;
-import bies.alimentacion.carronia.Carronia;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,7 +22,7 @@ public class InsectoAbstractoTest {
     public void testInsectoCambiaEstadoACarronia() {
         Arana arana = new Arana("Viuda Negra");
 
-        EstadoCarronia estadoCarronia = new EstadoCarronia(new Carronia(arana));
+        EstadoCarronia estadoCarronia = new EstadoCarronia(new Alimento("Arana"));
         arana.cambiarEstado(estadoCarronia);
 
         assertTrue(arana.esCarronia());
@@ -42,7 +42,7 @@ public class InsectoAbstractoTest {
             arana.perderPata();
         }
 
-        Carronia carronia = arana.obtenerCarronia();
+        Alimento carronia = arana.obtenerCarronia();
         assertNotNull(carronia);
     }
 }
