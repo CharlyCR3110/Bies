@@ -37,6 +37,7 @@ public class EstadoCarronia implements IEstadoInsecto {
      * 
      * @return El objeto `Carronia` asociado a este estado.
      */
+    @Override
     public Alimento getCarronia() {
         return carronia;
     }
