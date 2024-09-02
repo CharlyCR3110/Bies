@@ -1,4 +1,5 @@
 package bies.ente.insecto.estado; 
+import bies.alimentacion.Alimento;
 
 /**
  * @author Carlos G. G.
@@ -8,6 +9,7 @@ package bies.ente.insecto.estado;
  * @version 1.0
  * @since 8/7/2024 - 3:25 PM
  */
+
 
 /**
  * Interfaz que define el comportamiento de un estado para un insecto.
@@ -23,4 +25,6 @@ public interface IEstadoInsecto {
      * @return true si el estado del insecto es carroña, false en caso contrario.
      */
     boolean esCarronia();
+
+    public Alimento getCarronia();
 }
